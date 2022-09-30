@@ -22,9 +22,9 @@ Create an .env file in project root with the following EnvVars:
 
 MONGODB_URL=
 
-DB_USER=
+MONGODB_USER=
 
-DB_PASSWORD=
+MONGODB_PASSWORD=
 
 
 ### Running the service
