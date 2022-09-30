@@ -1,6 +1,6 @@
-# onlinedata-url-resolver
+# onlinedata-parser
 
-Service that transforms an input URL in Its original form, unshort URLs.
+Service that get an URL as parameter and returns the data as plain text and metadata such as: keywords, summary and wordCount.
 
 ### Service Stack
 This service uses:
@@ -8,11 +8,11 @@ This service uses:
 * Java 11
 * Scala 2.13.8 
 * Play Framework 2.8.x 
-* Doobie 1.0.0-RC1
+* CoreNLP for natural language processing (Nound detection)
 * Apache httpcomponents
 * SBT
 
-### Run a local database
+### Run a local Mongo database
 This service use a PostgreSQL database.
 Inside database folder execute:
 
@@ -20,11 +20,11 @@ docker-compose up
 
 Create an .env file in project root with the following EnvVars:
 
-DB_URL=jdbc:postgresql://localhost:5432/url_resolver
+MONGODB_URL=
 
-DB_USER=docker
+DB_USER=
 
-DB_PASSWORD=docker
+DB_PASSWORD=
 
 
 ### Running the service
@@ -33,7 +33,7 @@ sbt run
 
 ### Executing the service
 
-curl --location --request POST 'http://localhost:9000/resolve' \
+curl --location --request POST 'http://localhost:9000/parse' \
 --header 'Content-Type: text/plain' \
 --data-raw 'https://t.co/V0jvJVOLBu'
 
